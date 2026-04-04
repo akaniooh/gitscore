@@ -126,58 +126,77 @@ export default function App() {
         body { font-family: 'Syne', sans-serif; background: #080810; color: #e2e0f0; min-height: 100vh; }
         .grain { position: fixed; inset: 0; pointer-events: none; z-index: 999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); opacity: 0.4; }
         .glow { position: fixed; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(192,132,252,0.08) 0%, transparent 70%); pointer-events: none; top: -200px; left: 50%; transform: translateX(-50%); }
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 24px 100px; position: relative; }
-        header { text-align: center; margin-bottom: 56px; }
-        .logo-mark { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-family: 'JetBrains Mono', monospace; color: #c084fc; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 24px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 48px 16px 80px; position: relative; }
+        header { text-align: center; margin-bottom: 40px; }
+        .logo-mark { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: #c084fc; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; }
         .logo-dot { width: 6px; height: 6px; border-radius: 50%; background: #c084fc; }
-        h1 { font-size: clamp(42px, 8vw, 80px); font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; color: #fff; margin-bottom: 16px; }
+        h1 { font-size: clamp(32px, 9vw, 80px); font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; color: #fff; margin-bottom: 14px; }
         h1 span { color: #c084fc; }
-        .tagline { font-size: 16px; color: #6b6980; font-family: 'JetBrains Mono', monospace; }
-        .search-wrap { display: flex; gap: 12px; margin-bottom: 48px; max-width: 560px; margin-left: auto; margin-right: auto; }
-        .search-input { flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 20px; font-size: 16px; font-family: 'JetBrains Mono', monospace; color: #e2e0f0; outline: none; transition: border-color 0.2s, background 0.2s; }
+        .tagline { font-size: 13px; color: #6b6980; font-family: 'JetBrains Mono', monospace; }
+        .search-wrap { display: flex; gap: 10px; margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto; }
+        .search-input { flex: 1; min-width: 0; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 16px; font-size: 15px; font-family: 'JetBrains Mono', monospace; color: #e2e0f0; outline: none; transition: border-color 0.2s, background 0.2s; }
         .search-input::placeholder { color: #3d3b50; }
         .search-input:focus { border-color: #c084fc; background: rgba(192,132,252,0.05); }
-        .btn { background: #c084fc; border: none; border-radius: 12px; padding: 16px 28px; font-size: 15px; font-family: 'Syne', sans-serif; font-weight: 700; color: #1a0030; cursor: pointer; transition: opacity 0.2s, transform 0.1s; white-space: nowrap; }
+        .btn { background: #c084fc; border: none; border-radius: 12px; padding: 14px 20px; font-size: 14px; font-family: 'Syne', sans-serif; font-weight: 700; color: #1a0030; cursor: pointer; transition: opacity 0.2s, transform 0.1s; white-space: nowrap; flex-shrink: 0; }
         .btn:hover { opacity: 0.9; }
         .btn:active { transform: scale(0.97); }
         .btn:disabled { opacity: 0.4; cursor: not-allowed; }
         .error { text-align: center; color: #f87171; font-family: 'JetBrains Mono', monospace; font-size: 13px; margin-bottom: 24px; }
-        .loading-wrap { text-align: center; padding: 80px 0; font-family: 'JetBrains Mono', monospace; color: #6b6980; font-size: 13px; }
-        .spinner { width: 40px; height: 40px; border: 2px solid rgba(192,132,252,0.2); border-top-color: #c084fc; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 20px; }
+        .loading-wrap { text-align: center; padding: 60px 0; font-family: 'JetBrains Mono', monospace; color: #6b6980; font-size: 13px; }
+        .spinner { width: 36px; height: 36px; border: 2px solid rgba(192,132,252,0.2); border-top-color: #c084fc; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
         @keyframes spin { to { transform: rotate(360deg); } }
-        .profile-row { display: flex; align-items: center; gap: 20px; margin-bottom: 36px; }
-        .avatar { width: 64px; height: 64px; border-radius: 50%; border: 2px solid rgba(192,132,252,0.3); }
-        .profile-name { font-size: 24px; font-weight: 800; color: #fff; }
-        .profile-handle { font-size: 13px; color: #6b6980; font-family: 'JetBrains Mono', monospace; }
-        .profile-bio { font-size: 14px; color: #8b8aa0; margin-top: 4px; }
-        .grade-badge { margin-left: auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-        .grade-letter { width: 72px; height: 72px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 800; border: 2px solid; }
-        .grade-label { font-size: 11px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; color: #6b6980; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 36px; }
-        .stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 18px 16px; position: relative; overflow: hidden; }
+        .profile-row { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+        .profile-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+        .avatar { width: 56px; height: 56px; border-radius: 50%; border: 2px solid rgba(192,132,252,0.3); flex-shrink: 0; }
+        .profile-info { min-width: 0; }
+        .profile-name { font-size: 20px; font-weight: 800; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .profile-handle { font-size: 12px; color: #6b6980; font-family: 'JetBrains Mono', monospace; }
+        .profile-bio { font-size: 13px; color: #8b8aa0; margin-top: 4px; line-height: 1.4; }
+        .grade-badge { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; }
+        .grade-letter { width: 60px; height: 60px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 800; border: 2px solid; }
+        .grade-label { font-size: 10px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; color: #6b6980; }
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 28px; }
+        .stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 16px 14px; position: relative; overflow: hidden; }
         .stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent, #c084fc); opacity: 0.6; }
-        .stat-label { font-size: 11px; font-family: 'JetBrains Mono', monospace; color: #4d4b60; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-        .stat-value { font-size: 28px; font-weight: 800; color: #fff; line-height: 1; }
-        .stat-sub { font-size: 12px; color: #4d4b60; margin-top: 4px; font-family: 'JetBrains Mono', monospace; }
-        .section { margin-bottom: 36px; }
-        .section-title { font-size: 12px; font-family: 'JetBrains Mono', monospace; color: #4d4b60; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .stat-label { font-size: 10px; font-family: 'JetBrains Mono', monospace; color: #4d4b60; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+        .stat-value { font-size: 26px; font-weight: 800; color: #fff; line-height: 1; }
+        .stat-sub { font-size: 11px; color: #4d4b60; margin-top: 4px; font-family: 'JetBrains Mono', monospace; }
+        .section { margin-bottom: 28px; }
+        .section-title { font-size: 11px; font-family: 'JetBrains Mono', monospace; color: #4d4b60; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
         .section-title::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.05); }
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } .profile-row { flex-wrap: wrap; } }
-        .panel { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 20px; }
-        .post-card { display: block; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 16px; margin-bottom: 10px; text-decoration: none; color: inherit; transition: border-color 0.2s, background 0.2s; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .panel { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 16px; }
+        .post-card { display: block; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 14px; margin-bottom: 10px; text-decoration: none; color: inherit; transition: border-color 0.2s, background 0.2s; }
         .post-card:hover { border-color: rgba(192,132,252,0.3); background: rgba(192,132,252,0.04); }
-        .post-text { font-size: 14px; line-height: 1.6; color: #c4c2d4; margin-bottom: 10px; }
-        .post-meta { display: flex; gap: 14px; align-items: center; font-size: 12px; font-family: 'JetBrains Mono', monospace; color: #4d4b60; flex-wrap: wrap; }
+        .post-card:active { background: rgba(192,132,252,0.06); }
+        .post-text { font-size: 13px; line-height: 1.6; color: #c4c2d4; margin-bottom: 10px; }
+        .post-meta { display: flex; gap: 12px; align-items: center; font-size: 11px; font-family: 'JetBrains Mono', monospace; color: #4d4b60; flex-wrap: wrap; }
         .post-date { margin-left: auto; }
-        .insight-item { display: flex; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 14px; color: #8b8aa0; line-height: 1.5; }
+        .insight-item { display: flex; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 13px; color: #8b8aa0; line-height: 1.5; }
         .insight-item:last-child { border-bottom: none; }
         .chart-tooltip { background: #1a1828; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 8px 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #c4c2d4; }
-        .lang-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 13px; }
-        .lang-name { width: 90px; font-family: 'JetBrains Mono', monospace; color: #8b8aa0; font-size: 11px; flex-shrink: 0; }
+        .lang-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .lang-name { width: 80px; font-family: 'JetBrains Mono', monospace; color: #8b8aa0; font-size: 11px; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .lang-track { flex: 1; background: rgba(255,255,255,0.05); border-radius: 4px; height: 6px; overflow: hidden; }
         .lang-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
-        .lang-count { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #4d4b60; width: 40px; text-align: right; }
+        .lang-count { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #4d4b60; width: 36px; text-align: right; flex-shrink: 0; }
+        @media (max-width: 480px) {
+          .container { padding: 32px 14px 60px; }
+          header { margin-bottom: 28px; }
+          h1 { font-size: clamp(28px, 10vw, 48px); margin-bottom: 10px; }
+          .search-wrap { flex-direction: column; gap: 8px; }
+          .btn { width: 100%; padding: 14px; font-size: 15px; }
+          .two-col { grid-template-columns: 1fr; }
+          .stats-grid { grid-template-columns: repeat(2, 1fr); }
+          .profile-row { gap: 12px; }
+          .grade-letter { width: 52px; height: 52px; font-size: 26px; }
+          .stat-value { font-size: 22px; }
+          .panel { padding: 14px; }
+        }
+        @media (min-width: 640px) {
+          .stats-grid { grid-template-columns: repeat(4, 1fr); }
+          .container { padding: 60px 24px 100px; }
+        }
       `}</style>
 
       <div className="grain" />
@@ -219,17 +238,19 @@ export default function App() {
         {data && (
           <div>
             <div className="profile-row">
-              {data.profile_image_url && (
-                <img className="avatar" src={data.profile_image_url} alt={data.name} />
-              )}
-              <div>
-                <div className="profile-name">{data.name}</div>
-                <div className="profile-handle">@{data.username}{data.location ? ` · ${data.location}` : ""}</div>
-                {data.description && (
-                  <div className="profile-bio">
-                    {data.description.length > 120 ? data.description.slice(0, 120) + "…" : data.description}
-                  </div>
+              <div className="profile-left">
+                {data.profile_image_url && (
+                  <img className="avatar" src={data.profile_image_url} alt={data.name} />
                 )}
+                <div className="profile-info">
+                  <div className="profile-name">{data.name}</div>
+                  <div className="profile-handle">@{data.username}{data.location ? ` · ${data.location}` : ""}</div>
+                  {data.description && (
+                    <div className="profile-bio">
+                      {data.description.length > 100 ? data.description.slice(0, 100) + "…" : data.description}
+                    </div>
+                  )}
+                </div>
               </div>
               {grade && (
                 <div className="grade-badge">
