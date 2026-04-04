@@ -43,6 +43,7 @@ def compute_score(user: dict, repos: list) -> float:
     total_forks = sum(r.get("forks_count", 0) for r in repos)
     languages = set(r.get("language") for r in repos if r.get("language"))
 
+    # Each component is 0-100
     follower_score = math.log10(max(followers, 1)) / math.log10(100000) * 100
     star_score = math.log10(max(total_stars, 1)) / math.log10(10000) * 100
     fork_score = math.log10(max(total_forks, 1)) / math.log10(5000) * 100
@@ -53,15 +54,18 @@ def compute_score(user: dict, repos: list) -> float:
         1 for r in repos
         if r.get("pushed_at") and (now - datetime.fromisoformat(r["pushed_at"].replace("Z", "+00:00"))).days < 180
     )
-    activity_score = min(recent_count / 10 * 100, 100)
+    # Need 30 active repos for max activity score
+    activity_score = min(recent_count / 30 * 100, 100)
 
+    # Weighted average (weights sum to 1.0), scaled to 1000
     score = (
-        follower_score * 25 +
-        star_score * 35 +
-        fork_score * 15 +
-        diversity_score * 10 +
-        activity_score * 15
-    )
+        follower_score * 0.25 +
+        star_score * 0.35 +
+        fork_score * 0.15 +
+        diversity_score * 0.10 +
+        activity_score * 0.15
+    ) * 10
+
     return round(min(score, 1000), 1)
 
 
