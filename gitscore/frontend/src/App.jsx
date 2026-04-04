@@ -206,7 +206,7 @@ export default function App() {
         <header>
           <div className="logo-mark">
             <div className="logo-dot" />
-            XScore
+            GitScore
             <div className="logo-dot" />
           </div>
           <h1>Analyze your<br /><span>GitHub influence</span></h1>
@@ -334,7 +334,7 @@ export default function App() {
             )}
 
             <div style={{ textAlign: "center", fontSize: 12, color: "#2d2b3d", fontFamily: "JetBrains Mono", marginTop: 40 }}>
-              Based on {data.public_repos} public repos — XScore v2.0
+              Based on {data.public_repos} public repos — GitScore v2.0
             </div>
           </div>
         )}
