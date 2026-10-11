@@ -1,8 +1,8 @@
-# XScore — X Creator Analytics & Reputation Scoring
+# GitScore — Gihub Analytics & Reputation Scoring
 
 A full-stack web app that analyzes any X (Twitter) account and generates a reputation score, engagement insights, viral content patterns, and optimal posting times.
 
-![XScore Screenshot](docs/screenshot.png)
+
 
 ## Features
 
@@ -29,9 +29,9 @@ A full-stack web app that analyzes any X (Twitter) account and generates a reput
 
 ## Getting Started
 
-### 1. Get a Twitter Bearer Token
+### 1. Get a Github Bearer Token
 
-1. Go to [developer.twitter.com](https://developer.twitter.com)
+1. Go to Github Api platform
 2. Create a project and app
 3. Copy your **Bearer Token** (free tier is enough — gives read access)
 
@@ -89,23 +89,7 @@ Frontend will be live at `http://localhost:5173`
 
 Analyzes a Twitter/X account.
 
-**Response:**
-```json
-{
-  "username": "Naval",
-  "name": "Naval",
-  "followers": 2400000,
-  "total_analyzed": 100,
-  "bangers": 23,
-  "banger_rate": 0.23,
-  "avg_engagement": 4821.3,
-  "social_score": 742.5,
-  "grade": "A",
-  "top_posts": [...],
-  "posting_hours": [...],
-  "insights": [
-    { "type": "positive", "text": "Strong viral content — over 30% of your posts hit 1k+ engagement." }
-  ]
+
 }
 ```
 
